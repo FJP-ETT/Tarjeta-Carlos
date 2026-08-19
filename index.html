@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Tarjeta Digital Profesional</title>
+    <title>Carlos Castellanos - Tarjeta Profesional</title>
+    <!-- Iconos profesionales externos -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         * {
             margin: 0;
@@ -30,85 +32,195 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             overflow: hidden;
             text-align: center;
-            padding: 35px 24px;
+            padding: 30px 20px;
         }
 
-        /* Contenedor de la foto de perfil */
+        /* Foto de perfil circular */
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #0284c7;
-            margin: 0 auto 20px auto;
+            border: 4px solid #da1b22; /* Rojo corporativo FJP */
+            margin: 0 auto 15px auto;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             color: #0f172a;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             font-weight: 700;
         }
 
+        .academic {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
         .subtitle {
-            font-size: 14px;
-            color: #0284c7;
-            font-weight: 600;
+            font-size: 13px;
+            color: #da1b22;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 22px;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
         }
 
         .description {
-            font-size: 14px;
+            font-size: 13.5px;
             color: #334155;
-            line-height: 1.6;
-            margin-bottom: 30px;
+            line-height: 1.5;
+            margin-bottom: 25px;
             text-align: justify;
         }
 
-        /* Botón del Currículum (Ver y Descargar) */
+        /* Bloque de datos de contacto fijos */
+        .contact-info-block {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 25px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 10px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item i {
+            color: #da1b22;
+            width: 25px;
+            font-size: 15px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        /* Contenedor de botones de acción rápida */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #f1f5f9;
+            color: #334155;
+            text-decoration: none;
+            padding: 12px 5px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-action i {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        /* Colores específicos de interacción */
+        .btn-action.btn-whatsapp:hover { background: #25d366; color: white; border-color: #25d366; }
+        .btn-action.btn-email:hover { background: #ea4335; color: white; border-color: #ea4335; }
+        .btn-action.btn-linkedin:hover { background: #0077b5; color: white; border-color: #0077b5; }
+
+        /* Botón principal Destacado: Currículum */
         .btn-cv {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: #0284c7;
+            background-color: #da1b22;
             color: white;
             text-decoration: none;
-            padding: 15px 24px;
-            font-size: 16px;
+            padding: 14px 24px;
+            font-size: 15px;
             font-weight: bold;
             border-radius: 50px;
             width: 100%;
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+            box-shadow: 0 4px 12px rgba(218, 27, 34, 0.3);
             transition: all 0.3s ease;
         }
 
+        .btn-cv i {
+            margin-right: 8px;
+        }
+
         .btn-cv:hover {
-            background-color: #0369a1;
+            background-color: #b31217;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 6px 15px rgba(218, 27, 34, 0.4);
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <!-- Reemplaza "foto.png" si tu archivo tiene otra extensión como .jpg o .jpeg -->
-        <img src="foto.png" alt="Foto de Perfil Profesional" class="profile-img">
+        <!-- Si tu foto subida termina en .png o .jpeg, cambia el src="foto.jpg" por el correcto -->
+        <img src="foto.jpg" alt="Carlos Castellanos" class="profile-img">
         
-        <!-- CAMBIA ESTO CON TUS DATOS REALES -->
-        <h1>Carlos Augusto Castellanos Suárez</h1>
+        <h1>Carlos Castellanos</h1>
+        <div class="academic">Ing. Químico | Esp. Química Ambiental | MBA</div>
         <div class="subtitle">Dirección de Procesos & Control de Costes</div>
         
         <p class="description">
             Profesional con 13 años de experiencia en los sectores industrial y de servicios, especializado en la dirección de procesos, diseño de estrategias de producción más limpia y control de costes operativos. Cuenta con una sólida trayectoria en la validación y auditoría de registros operativos y de tiempo, gestión de insumos y seguimiento riguroso de la facturación, garantizando siempre la máxima rentabilidad de las operaciones. Es un líder estratégico enfocado en construir culturas ganadoras y equipos de alto rendimiento adaptables al cambio mediante la motivación y el compromiso. Su objetivo es incorporarse en un cargo directivo en plantas de producción o gestión de residuos para liderar de forma eficiente, optimizar sistemas y asegurar el logro de los objetivos financieros y organizacionales con total acierto.
         </p>
 
-        <!-- Enlace al PDF que subiste. Reemplaza si le pusiste otro nombre exacto -->
+        <!-- Bloque informativo de la tarjeta física -->
+        <div class="contact-info-block">
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>+34 664 34 82 47</span>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>carlos.castellanos@live.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Calle Perú, Edif. Forum Pl. 2 Of. 8, Alcantarilla, Murcia</span>
+            </div>
+        </div>
+
+        <!-- Botones interactivos directos -->
+        <div class="action-buttons">
+            <!-- Abre WhatsApp con mensaje directo listo -->
+            <a href="https://wa.me" target="_blank" class="btn-action btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                WhatsApp
+            </a>
+            <!-- Abre la app de correo para escribirte -->
+            <a href="mailto:carlos.castellanos@live.com" class="btn-action btn-email">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                Correo
+            </a>
+            <!-- Enlace a tu LinkedIn (reemplaza el '#' con tu enlace real si lo tienes) -->
+            <a href="#" target="_blank" class="btn-action btn-linkedin">
+                <i class="fa-brands fa-linkedin"></i>
+                LinkedIn
+            </a>
+        </div>
+
+        <!-- Botón del Currículum -->
         <a href="curriculum.pdf" target="_blank" class="btn-cv">
-            📄 Ver y Descargar CV
+            <i class="fa-solid fa-file-pdf"></i> Ver y Descargar CV
         </a>
     </div>
 
