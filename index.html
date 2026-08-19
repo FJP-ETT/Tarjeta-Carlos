@@ -4,288 +4,299 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carlos Castellanos - FJP ETT</title>
-    <!-- Iconos profesionales externos -->
+    <!-- Iconos profesionales -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            background-color: #f3f4f6;
+            background-color: #1a202c; /* Fondo oscuro de fondo para resaltar la tarjeta */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        /* Contenedor principal idéntico al de la imagen */
+        .card-wrapper {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 390px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            padding-bottom: 20px;
+        }
+
+        /* Encabezado con el patrón de franjas FJP */
+        .header-section {
+            background: #ffffff;
+            height: 160px;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            min-height: 100vh;
-            padding: 0;
+            padding-top: 15px;
         }
 
-        /* Contenedor de la tarjeta estilo Sidy Thiam */
-        .card-container {
-            background: #ffffff;
-            width: 100%;
-            max-width: 450px;
-            min-height: 100vh;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            position: relative;
-            padding-bottom: 40px;
+        /* Logotipo FJP */
+        .brand-logo {
+            text-align: center;
+            z-index: 10;
+        }
+        .brand-logo h2 {
+            color: #da1b22;
+            font-size: 32px;
+            font-style: italic;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .brand-logo p {
+            color: #000;
+            font-size: 7px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
         }
 
-        /* Encabezado Corporativo FJP con diagonales */
-        .header-bg {
-            background: #000000;
-            height: 140px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            padding-left: 20px;
-        }
-
-        .header-bg::after {
-            content: '';
+        /* Franjas diagonales decorativas */
+        .diagonal-black {
             position: absolute;
             top: 0;
-            right: -50px;
-            width: 120px;
+            right: 0;
+            width: 45%;
             height: 100%;
-            background: #da1b22; /* Rojo FJP */
+            background: #111111;
             transform: skewX(-20deg);
+            transform-origin: top right;
+        }
+        .diagonal-red {
+            position: absolute;
+            top: 0;
+            right: 44%;
+            width: 15px;
+            height: 100%;
+            background: #da1b22;
+            transform: skewX(-20deg);
+            transform-origin: top right;
         }
 
-        .logo-text {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .logo-sub {
-            color: #ffffff;
-            font-size: 8px;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: -2px;
-        }
-
-        /* Contenedor y Foto de Perfil enmarcada */
-        .profile-box {
+        /* Contenedor de la foto de perfil */
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            margin-top: -65px;
             position: relative;
-            margin-top: -70px;
+            z-index: 20;
             margin-bottom: 15px;
-            text-align: center;
-            z-index: 5;
         }
-
-        .profile-img {
-            width: 160px;
-            height: 190px;
+        .profile-picture {
+            width: 140px;
+            height: 170px;
             object-fit: cover;
             border-radius: 12px;
-            border: 4px solid #ffffff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            background-color: #e5e7eb;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            background-color: #e2e8f0;
         }
 
-        /* Textos Principales */
-        .info-section {
+        /* Detalles del profesional */
+        .profile-details {
             text-align: center;
-            padding: 0 25px;
+            padding: 0 20px;
         }
-
-        h1 {
-            font-size: 28px;
-            color: #111827;
-            font-weight: 800;
+        .profile-details h1 {
+            font-size: 26px;
+            color: #111111;
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
         }
-
-        .academic {
-            font-size: 13px;
+        .profile-details .cargo {
+            font-size: 15px;
             color: #da1b22;
-            font-weight: 700;
-            margin-bottom: 4px;
+            font-weight: bold;
+            margin-top: 2px;
+            margin-bottom: 12px;
         }
-
-        .subtitle {
-            font-size: 14px;
-            color: #4b5563;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
+        .profile-details .academic {
+            font-size: 11px;
+            color: #666666;
+            margin-bottom: 12px;
+            font-weight: bold;
         }
-
-        .subtitle::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 3px;
-            background: #da1b22;
-            margin: 6px auto 0 auto;
-            border-radius: 2px;
-        }
-
-        .description {
-            font-size: 13.5px;
-            color: #374151;
-            line-height: 1.6;
-            margin-bottom: 25px;
+        .profile-details .bio {
+            font-size: 12px;
+            color: #444444;
+            line-height: 1.5;
             text-align: justify;
+            margin-bottom: 15px;
         }
 
-        /* Lista de Contacto con Iconos de Colores */
-        .contact-list {
-            margin-bottom: 30px;
-            display: inline-block;
-            text-align: left;
+        /* Datos rápidos con iconos pequeños */
+        .quick-contact {
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #333333;
+            font-weight: bold;
         }
-
-        .contact-item {
+        .quick-contact p {
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
+            justify-content: center;
+        }
+        .quick-contact i {
+            margin-right: 8px;
             font-size: 14px;
-            color: #1f2937;
-            font-weight: 500;
+        }
+        .quick-contact .fa-phone { color: #da1b22; }
+        .quick-contact .fa-envelope { color: #b794f4; }
+
+        /* Separadores horizontales grises del diseño */
+        .divider {
+            height: 1px;
+            background-color: #e2e8f0;
+            margin: 15px 15px;
         }
 
-        .contact-item i {
-            font-size: 16px;
-            margin-right: 12px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .icon-phone { color: #da1b22; }
-        .icon-email { color: #a855f7; }
-        .icon-location { color: #9ca3af; }
-
-        /* Bloque de Botones de Acción Grandes y Anchos */
-        .buttons-container {
-            padding: 0 20px;
+        /* Lista de Botones Grandes */
+        .actions-list {
+            padding: 0 15px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
-
-        .btn-full {
+        .btn-item {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             border-radius: 10px;
             color: #ffffff;
             text-decoration: none;
-            font-size: 15px;
-            font-weight: 700;
-            transition: transform 0.2s, opacity 0.2s;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-item i {
+            margin-right: 8px;
+            font-size: 16px;
         }
 
-        .btn-full:active {
-            transform: scale(0.98);
+        /* Estilos cromáticos de los botones */
+        .btn-whatsapp { background-color: #25d366; }
+        .btn-call { background-color: #da1b22; }
+        .btn-linkedin { background-color: #111111; }
+        
+        .btn-secondary {
+            background-color: #edf2f7;
+            color: #2d3748;
+            border: 1px solid #cbd5e0;
+        }
+        .btn-secondary i { color: #a0aec0; }
+
+        /* Bloque inferior del código QR */
+        .qr-section {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .qr-section p {
+            font-size: 12px;
+            font-weight: bold;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+        .qr-image {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+        }
+        .qr-footer-text {
+            font-size: 9px;
+            color: #a0aec0;
+            margin-top: 5px;
         }
 
-        .btn-full i {
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
-        /* Colores exactos para los botones */
-        .btn-whatsapp {
-            background-color: #25d366;
-        }
-
-        .btn-call {
-            background-color: #da1b22;
-        }
-
-        .btn-linkedin {
-            background-color: #000000;
-        }
-
-        .btn-cv {
-            background-color: #0077b5;
+        /* Pie de página pequeño de la empresa */
+        .footer-info {
+            text-align: center;
+            font-size: 9px;
+            color: #718096;
+            margin-top: 15px;
+            padding: 0 10px;
+            line-height: 1.3;
         }
     </style>
 </head>
 <body>
 
-    <div class="card-container">
-        <!-- Encabezado FJP -->
-        <div class="header-bg">
-            <div>
-                <div class="logo-text">FJP</div>
-                <div class="logo-sub">Empresa de Trabajo Temporal S.L.</div>
+    <div class="card-wrapper">
+        <!-- Encabezado corporativo -->
+        <div class="header-section">
+            <div class="diagonal-black"></div>
+            <div class="diagonal-red"></div>
+            <div class="brand-logo">
+                <h2>FJP</h2>
+                <p>Empresa de Trabajo Temporal S.L.</p>
             </div>
         </div>
 
         <!-- Foto de Perfil enmarcada -->
-        <div class="profile-box">
-            <!-- Cambia src a "foto.png" o "foto.jpeg" si tu archivo guardado tiene esa extensión -->
-            <img src="foto.jpg" alt="Carlos Castellanos" class="profile-img">
+        <div class="profile-container">
+            <!-- REVISAR: Cambia por "foto.png" si no logras verla como foto.jpg -->
+            <img src="foto.jpg" alt="Carlos Castellanos" class="profile-picture">
         </div>
 
-        <!-- Información de Perfil -->
-        <div class="info-section">
+        <!-- Información profesional -->
+        <div class="profile-details">
             <h1>Carlos Castellanos</h1>
+            <div class="cargo">Dirección de Procesos & Control de Costes</div>
             <div class="academic">Ing. Químico | Esp. Química Ambiental | MBA</div>
-            <div class="subtitle">Dirección de Procesos & Control de Costes</div>
             
-            <p class="description">
+            <p class="bio">
                 Profesional con 13 años de experiencia en los sectores industrial y de servicios, especializado en la dirección de procesos, diseño de estrategias de producción más limpia y control de costes operativos. Cuenta con una sólida trayectoria en la validación y auditoría de registros operativos y de tiempo, gestión de insumos y seguimiento riguroso de la facturación, garantizando siempre la máxima rentabilidad de las operaciones. Es un líder estratégico enfocado en construir culturas ganadoras y equipos de alto rendimiento adaptables al cambio mediante la motivación y el compromiso. Su objetivo es incorporarse en un cargo directivo en plantas de producción o gestión de residuos para liderar de forma eficiente, optimizar sistemas y asegurar el logro de los objetivos financieros y organizacionales con total acierto.
             </p>
 
-            <!-- Datos de Contacto Directos -->
-            <div class="contact-list">
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone icon-phone"></i>
-                    <span>+34 664 34 82 47</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-envelope icon-email"></i>
-                    <span>carlos.castellanos@live.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-location-dot icon-location"></i>
-                    <span>Calle Perú, Edif. Forum Pl. 2 Of. 8, Alcantarilla, Murcia</span>
-                </div>
+            <!-- Datos rápidos tipo Sidy -->
+            <div class="quick-contact">
+                <p><i class="fa-solid fa-phone"></i> +34 664 34 82 47</p>
+                <p><i class="fa-solid fa-envelope"></i> carlos.castellanos@live.com</p>
             </div>
         </div>
 
-        <!-- Botones de Acción de Bloque Completo -->
-        <div class="buttons-container">
-            <!-- Botón de WhatsApp -->
-            <a href="https://wa.me" target="_blank" class="btn-full btn-whatsapp">
+        <div class="divider"></div>
+
+        <!-- Bloque de Botones idénticos -->
+        <div class="actions-list">
+            <a href="https://wa.me" target="_blank" class="btn-item btn-whatsapp">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp · +34 664 34 82 47
             </a>
 
-            <!-- Botón de Llamar Directo -->
-            <a href="tel:+34664348247" class="btn-full btn-call">
+            <a href="tel:+34664348247" class="btn-item btn-call">
                 <i class="fa-solid fa-phone"></i> Llamar a España · +34 664 34 82 47
             </a>
 
-            <!-- Botón de LinkedIn (Coloca tu link real en el href si lo deseas) -->
-            <a href="#" target="_blank" class="btn-full btn-linkedin">
+            <!-- Enlace directo a tu LinkedIn (reemplaza el '#' con tu enlace si quieres) -->
+            <a href="#" target="_blank" class="btn-item btn-linkedin">
                 <i class="fa-brands fa-linkedin"></i> Perfil Profesional en LinkedIn
             </a>
 
-            <!-- Botón del Currículum Currículum -->
-            <a href="curriculum.pdf" target="_blank" class="btn-full btn-cv">
+            <!-- Botón del Currículum -->
+            <a href="curriculum.pdf" target="_blank" class="btn-item btn-secondary">
                 <i class="fa-solid fa-file-pdf"></i> Ver y Descargar Currículum (PDF)
             </a>
         </div>
-    </div>
 
-</body>
-</html>
+        <div class="divider"></div>
+
+        <!-- Sección del Código QR dinámico autogenerado -->
+        <div class="qr-section">
+            <p>QR · FJP-ETT</p>
+            <!-- Este enlace genera automáticamente tu código QR apuntando a tu propia tarjeta -->
